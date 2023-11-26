@@ -12,6 +12,5 @@ for i in range(total_num):
         cnt += 1
         continue
     if i != total_num - 1:
-        print("?")
         cnt = 1
 print(cnt)

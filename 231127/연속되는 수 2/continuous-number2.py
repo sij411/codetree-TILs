@@ -10,6 +10,8 @@ cnt = 0
 for i in range(total_num):
     if i == 0 or nums[i] == nums[i-1]:
         cnt += 1
+        continue
     if i != total_num - 1:
+        print("?")
         cnt = 1
 print(cnt)

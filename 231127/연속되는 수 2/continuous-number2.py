@@ -6,11 +6,13 @@ for i in range(total_num):
     nums.append(num)
 
 cnt = 0
+maximum = 0
 
 for i in range(total_num):
-    if i == 0 or nums[i] == nums[i-1]:
+    if i >= 1 and nums[i] == nums[i-1]:
         cnt += 1
-        continue
-    if i != total_num - 1:
+    else:
         cnt = 1
-print(cnt)
+    maximum = max(cnt, maximum) 
+
+print(maximum)

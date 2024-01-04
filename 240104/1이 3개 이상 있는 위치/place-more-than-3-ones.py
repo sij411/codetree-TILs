@@ -2,12 +2,13 @@
 n = int(input())
 # 격자
 grid = []
+
+
 for _ in range(n):
-    arr = []
-    row = map(int, input().split(' '))
-    for elem in row:
-        arr.append(elem)
+    arr = list(map(int, input().split(' ')))
     grid.append(arr)
+    
+    
 # print(grid)
 # 상하좌우 
 dxs = [0, 0, -1, 1]

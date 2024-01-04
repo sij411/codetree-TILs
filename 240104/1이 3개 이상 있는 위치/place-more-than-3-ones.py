@@ -5,7 +5,7 @@ grid = []
 
 
 for _ in range(n):
-    arr = list(map(int, input().split(' ')))
+    arr = list(map(int, input().strip().split(' ')))
     grid.append(arr)
     
     

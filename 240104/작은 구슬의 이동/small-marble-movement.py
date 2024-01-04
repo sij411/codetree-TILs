@@ -7,6 +7,7 @@ x, y, cur_dir = input().strip().split(' ')
 x = int(x) - 1
 y = int(y) - 1
 
+
 # L U D R
 dys = [-1, 0, 0, 1]  # 열
 dxs = [0, -1, 1, 0]  # 행
@@ -21,12 +22,12 @@ mapper = {
 cur_dir = mapper[cur_dir]
 
 
-def can_not_move_side(x):
-    return x <= 0 or x >= n - 1
+def can_not_move_side(x, dir_num):
+    return (x <= 0 and dir_num == 0) or (x >= n - 1 and dir_num == 3)
 
 
-def can_not_move_upside(y):
-    return y <= 0 or y >= n - 1
+def can_not_move_upside(y, dir_num):
+    return (y <= 0 and dir_num == 1) or (y >= n - 1 and dir_num == 2)
 
 
 # gird
@@ -41,16 +42,15 @@ def change_dir(dir_num):
 
 cur_t = 0
 while cur_t < t:
-    if cur_dir in [0, 3] and can_not_move_side(y):
+    if cur_dir in [0, 3] and can_not_move_side(y, cur_dir):
         cur_dir = change_dir(cur_dir)
         cur_t += 1
-        # print(f"current {cur_t}, x: {x}, y: {y}, d: {cur_dir}")
-    elif cur_dir in [1, 2] and can_not_move_upside(x):
+        continue
+    elif cur_dir in [1, 2] and can_not_move_upside(x, cur_dir):
         cur_dir = change_dir(cur_dir)
         cur_t += 1
-        # print(f"current {cur_t}, x: {x}, y: {y}, d: {cur_dir}")
+        continue
     x, y = x + dxs[cur_dir], y + dys[cur_dir]
     cur_t += 1
-    # print(f"current {cur_t}, x: {x}, y: {y}, d: {cur_dir}")
 
 print(x + 1, y + 1)

@@ -25,7 +25,7 @@ for i in range(n):
     grid.append(arr_int)
 
 # middle
-m = (n+1)//2
+m = n//2
 
 # x == row, y == col
 # north east south west
@@ -41,8 +41,8 @@ def turn_right(d):
 def in_range(x, y):
     return 0 <= x and x < n and 0 <= y and y < n
 total = 0
-num = grid[m-1][m-1]
-cur_x, cur_y = m-1, m-1
+num = grid[m][m]
+cur_x, cur_y = m, m
 total += num
 d = 0
 

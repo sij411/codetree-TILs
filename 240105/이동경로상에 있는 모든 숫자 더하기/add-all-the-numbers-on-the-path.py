@@ -36,7 +36,7 @@ def turn_left(d):
     return (d -1 + 4) % 4
 
 def turn_right(d):
-    return (d + 1) % 3
+    return (d + 1) % 4
 
 def in_range(x, y):
     return 0 <= x and x < n and 0 <= y and y < n

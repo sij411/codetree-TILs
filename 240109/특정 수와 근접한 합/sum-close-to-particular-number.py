@@ -6,8 +6,7 @@ arr = list(map(int, input().split(" ")))
 
 MAX = sys.maxsize
 result = MAX
-x = 0
-y = 0
+
 for i in range(n):
     cnt = 0 
     for j in range(n):

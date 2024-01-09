@@ -2,7 +2,7 @@ import sys
 
 n, s = map(int, input().split(" "))
 
-arr = list(map(int, input().trim().split(" ")))
+arr = list(map(int, input().strip().split(" ")))
 
 MAX = sys.maxsize
 result = MAX

@@ -16,7 +16,7 @@ for i in range(n):
             num[j] = 0
             cnt = sum(num)
             if result > abs(cnt - s):
-                result = cnt - s
+                result = abs(cnt - s)
                 
 
 

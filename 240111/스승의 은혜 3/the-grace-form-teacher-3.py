@@ -10,7 +10,7 @@ for _ in range(n):
 
 def calculate(discount_idx, students):
 
-    total = budget
+    total = 0
     cnt = 0
     for idx, order in enumerate(students):
         if idx == discount_idx:
@@ -18,8 +18,8 @@ def calculate(discount_idx, students):
         else:
             price, shipping = order[0], order[1]
         
-        if (price + shipping) <= total:
-            total -= (price + shipping)
+        if (total + price + shipping) <= budget:
+            total += (price + shipping)
             cnt += 1
             # print("!!! ", total, cnt)
         else:

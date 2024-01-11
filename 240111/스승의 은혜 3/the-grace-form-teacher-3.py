@@ -29,7 +29,7 @@ max_cnt = 0
 arr_sorted = sorted(students, key=c_sort)
 for i in range(n):
     total, cnt = calculate(i, arr_sorted)
-    print(i, total, cnt)
+    # print(i, total, cnt)
     if total <= budget:
         cnt = max(max_cnt, cnt)
 

@@ -21,7 +21,7 @@ def calculate(discount_idx, students):
         if (total + price + shipping) <= budget:
             total += (price + shipping)
             cnt += 1
-            # print("!!! ", total, cnt)
+            #$ print("!!! ", total, cnt)
         else:
             return total, cnt
     return total, cnt

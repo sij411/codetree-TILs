@@ -26,8 +26,8 @@ def c_sort(item):
     return item[0]/2 + item[1]
 
 max_cnt = 0
+arr_sorted = sorted(students, key=c_sort)
 for i in range(n):
-    arr_sorted = sorted(students, key=c_sort)
     total, cnt = calculate(i, arr_sorted)
     # print(i, total, cnt)
     cnt = max(max_cnt, cnt)

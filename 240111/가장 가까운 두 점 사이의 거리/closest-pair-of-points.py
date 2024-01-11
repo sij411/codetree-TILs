@@ -1,3 +1,4 @@
+import sys
 # input : the number of coordinations 
 n = int(input())
 
@@ -7,7 +8,7 @@ for _ in range(n):
     coords.append(coord)
 
 # 거리의 제곱: (x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2)
-min_f, min_s, min_d = 1001, 1001, 1001
+min_f, min_s, min_d = sys.maxsize, sys.maxsize, sys.maxsize
 for i in range(n): # first dot
     for j in range(i+1, n): # second dot 
         x1, y1 = coords[i][0], coords[i][1] # first

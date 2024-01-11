@@ -13,7 +13,7 @@ def calculate(discount_idx, students):
     cnt = 0
     for idx, order in enumerate(students):
         if idx == discount_idx:
-            price, shipping = order[0]/2, order[1]
+            price, shipping = order[0]//2, order[1]
         else:
             price, shipping = order[0], order[1]
         cnt += 1
@@ -23,7 +23,7 @@ def calculate(discount_idx, students):
     return total, cnt
 
 def c_sort(item):
-    return item[0]/2 + item[1]
+    return item[0] + item[1]
 
 max_cnt = 0
 arr_sorted = sorted(students, key=c_sort)

@@ -9,7 +9,8 @@ for _ in range(n):
 # print(students)
 
 def calculate(discount_idx, students):
-    total = 0
+
+    total = budget
     cnt = 0
     for idx, order in enumerate(students):
         if idx == discount_idx:
@@ -17,9 +18,10 @@ def calculate(discount_idx, students):
         else:
             price, shipping = order[0], order[1]
         
-        total += (price + shipping)
-        if total <= budget:
+        if (price + shipping) <= total:
+            total -= (price + shipping)
             cnt += 1
+            # print("!!! ", total, cnt)
         else:
             return total, cnt
     return total, cnt
@@ -32,7 +34,6 @@ arr_sorted = sorted(students, key=c_sort)
 for i in range(n):
     total, cnt = calculate(i, arr_sorted)
     # print(i, total, cnt)
-    if total <= budget:
-        cnt = max(max_cnt, cnt)
+    max_cnt = max(max_cnt, cnt)
 
-print(cnt)
+print(max_cnt)

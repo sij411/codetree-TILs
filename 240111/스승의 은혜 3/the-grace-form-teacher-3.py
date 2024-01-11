@@ -16,9 +16,11 @@ def calculate(discount_idx, students):
             price, shipping = order[0]//2, order[1]
         else:
             price, shipping = order[0], order[1]
-        cnt += 1
-        total += price + shipping
-        if total >= budget:
+        
+        total += (price + shipping)
+        if total <= budget:
+            cnt += 1
+        else:
             return total, cnt
     return total, cnt
 

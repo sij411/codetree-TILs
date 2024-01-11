@@ -6,7 +6,6 @@ students = []
 for _ in range(n):
     students.append(list(map(int, input().split(" "))))
 
-# print(students)
 
 def calculate(discount_idx, students):
 
@@ -21,7 +20,6 @@ def calculate(discount_idx, students):
         if (total + price + shipping) <= budget:
             total += (price + shipping)
             cnt += 1
-            #$ print("!!! ", total, cnt)
         else:
             return total, cnt
     return total, cnt
@@ -33,7 +31,6 @@ max_cnt = 0
 arr_sorted = sorted(students, key=c_sort)
 for i in range(n):
     total, cnt = calculate(i, arr_sorted)
-    # print(i, total, cnt)
     max_cnt = max(max_cnt, cnt)
 
 print(max_cnt)

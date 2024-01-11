@@ -31,6 +31,6 @@ for i in range(n):
     total, cnt = calculate(i, arr_sorted)
     # print(i, total, cnt)
     if total <= budget:
-        cnt = max(max_cnt, cnt)
+        max_cnt = max(max_cnt, cnt)
 
-print(cnt)
+print(max_cnt)

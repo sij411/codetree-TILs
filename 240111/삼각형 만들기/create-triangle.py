@@ -12,24 +12,23 @@ def triangle(a, b, c):
     bx, by = pos[b]
     cx, cy = pos[c]
 
-    abx, aby = abs(ax-bx), abs(ay-by)
-    acx, acy = abs(ax-cx), abs(ay-cy)
-    bcx, bcy = abs(bx-cx), abs(by-cy)
-
-    if aby == 0 and bcx == 0:
-        size = abx * bcy * 0.5 * 2
-    elif aby == 0 and acx == 0:
-        size = abx * acy * 0.5 * 2
-    elif bcy == 0 and abx == 0:
-        size = bcx * aby * 0.5 * 2
-    elif bcy == 0 and acx == 0:
-        size = bcx * acy * 0.5 * 2
-    elif acy == 0 and bcx == 0:
-        size = acx * bcy * 0.5 * 2
-    elif acy == 0 and abx == 0:
-        size = abx * bcy * 0.5 * 2
+    if ay == by and cx == ax: # y parallel
+        size = abs(ax-bx) * abs(ay-cy) / 2 * 2
+    elif ay == by and cx == bx:
+        size = abs(ax-bx) * abs(by-cy) / 2 * 2
+    elif ay == cy and bx == ax:
+        size = abs(ax-cx) * abs(ay-by) / 2 * 2
+    elif ay == cy and bx == cx:
+        size = abs(ax-cx) * abs(ay-by) / 2 * 2
+    elif by == cy and ax == cx:
+        size = abs(bx-cx) * abs(ay-cy) / 2 * 2
+    elif by == cy and ax == bx:
+        size = abs(bx-cx) * abs(ay-by) / 2 * 2
     else:
         size = 0
+
+
+    
     
     return int(size)
 

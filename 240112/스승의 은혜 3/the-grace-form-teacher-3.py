@@ -1,4 +1,5 @@
 # input: students, budget
+import copy
 
 n, budget = map(int, input().strip().split(" "))
 
@@ -8,14 +9,18 @@ for _ in range(n):
 
 # print(students)
 
-def calculate(discount_idx, students):
+def calculate(discount_idx):
     total = 0
     cnt = 0
-    arr_sorted[discount_idx][0] /= 2
-    for idx, order in enumerate(students):
+    arr = copy.deepcopy(students)
+    arr[discount_idx][0] /= 2
+    arr_sorted = sorted(arr, key=c_sort)
+    # print(arr_sorted)
+    for idx, order in enumerate(arr_sorted):
         price, shipping = order[0], order[1]
         if (total + price + shipping) > budget:
             return total, cnt
+        # print(total, "??")
         cnt += 1
         total += price + shipping
         # print(discount_idx, total, cnt)
@@ -26,10 +31,8 @@ def c_sort(item):
 
 max_cnt = -1
 
-
 for i in range(n):
-    arr_sorted = sorted(students, key=c_sort)
-    total, cnt = calculate(i, arr_sorted)
+    total, cnt = calculate(i)
     # print(i, total, cnt)
     if total <= budget:
         max_cnt = max(max_cnt, cnt)

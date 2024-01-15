@@ -14,10 +14,11 @@ for k in range(K+1):
     for i in range(n):
         for j in range(i+1, n):
             cnt = 0
-            if abs(elements[i] - elements[j]) == k:
+            if elements[j] - elements[i] > k:
+                continue
                 # print(elements[i], elements[j])
-                cnt += len(elements[i:j+1])
-                max_cnt = max(cnt, max_cnt)
+            cnt += len(elements[i:j+1])
+            max_cnt = max(cnt, max_cnt)
                 # print(k,i,j, max_cnt)
                 
 

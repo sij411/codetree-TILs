@@ -8,10 +8,10 @@ for start in range(n):
     d = 0
     idx = start
     for _ in range(m):
+        d += arr[idx]
+        # print(idx, d)
         if (idx + 1) != arr[idx]:
-            d += arr[idx]
-            idx = arr[idx] - 1
-
+            idx = arr[idx] - 1   
     t = max(d, t)
     
 print(t)

@@ -5,8 +5,12 @@ for _ in range(n):
 
 elements.sort()
 max_cnt = 0
-
+max_elem = max(elements)
+min_elem = min(elements)
+diff = max_elem - min_elem
 for k in range(K+1):
+    if k > diff:
+        continue
     for i in range(n):
         for j in range(i+1, n):
             cnt = 0

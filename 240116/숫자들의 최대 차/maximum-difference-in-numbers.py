@@ -5,7 +5,9 @@ for _ in range(n):
 
 elements = sorted(elements)
 max_cnt = 0
-
+max_elem = max(elements)
+min_elem = min(elements)
+diff = max_elem - min_elem
 
 i, j = 0, 1
 while j < n :

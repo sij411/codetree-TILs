@@ -1,27 +1,30 @@
-n, k = map(int, input().split(" "))
-elements = []
-for _ in range(n):
-    elements.append(int(input()))
+MAX_NUM = 10000
 
-elements = sorted(elements)
-max_cnt = 0
-max_elem = max(elements)
-min_elem = min(elements)
-diff = max_elem - min_elem
+# 선언 및 입력:
+n, k = tuple(map(int, input().split()))
+arr = [
+    int(input())
+    for _ in range(n)
+]
 
-i, j = 0, 1
-while j < n :
-    if elements[j] - elements[i] == k and i != j:
-        cnt = j - i + 1 # idx 차이 == 개수 이미 정렬했으므로 해당 인덱스 범위 내에 있는 숫자들은 구간 안에 있음. 
-        max_cnt = max(cnt, max_cnt)
-            # print(f"k: {k}, i: {i}, j: {j}, cnt: {cnt}") 
-        j += 1
-    elif elements[j] - elements[i] > k:
-        i += 1
-    else:
-        j += 1
-    
-    
-                
+# 구간 [l, r] 
+# 사이에 들어있는 숫자 개수를 반환합니다.
+def count_num(l, r):
+    cnt = 0
+    for elem in arr:
+        if l <= elem and elem <= r:
+            cnt += 1
 
-print(max_cnt)
+    return cnt
+
+
+ans = 0
+# 크기가 K인 모든 구간을 잡아
+# 해당 구간 안에 들어오는 숫자의 개수를 세서
+# 그 중 최댓값을 계산합니다.
+for i in range(1, MAX_NUM + 1):
+    # 구간 [i, i + k] 사이에 들어있는 숫자를 세어
+    # 최댓값을 계산합니다.
+    ans = max(ans, count_num(i, i + k))
+
+print(ans)

@@ -1,6 +1,6 @@
 n, k = map(int, input().split(" "))
 
-arr = list(map(int, input().split(" ")))
+arr = list(map(int, input().strip().split(" ")))
 
 def is_possible(maximum):
     available = [i for i, elem in enumerate(arr) if elem <= maximum]

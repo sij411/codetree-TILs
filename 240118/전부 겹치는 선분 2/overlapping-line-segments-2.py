@@ -4,24 +4,18 @@ arr = []
 for _ in range(n):
     arr.append(list(map(int, input().strip().split(" "))))
 
-def out_of_range(a, b, x, y):
-    if a == x and b == y:
-        return True
-    return b < x or y < a 
     
 def check():
-    for i in range(n): # i 해당 선분 없는 경우
-        cnt = 0
-        for j in range(n):
-            if i == j:
-                continue
-            for k in range(n):
-                if k == j or k == i:
-                    continue
-                a, b = arr[j] # unpack
-                if out_of_range(a, b, arr[k][0], arr[k][1]):
-                        cnt += 1
-        if cnt == 0 :
+    cnt = 0
+    st, end= 0, 0
+    while st <= n-1 and end <= n-1:
+        if arr[st][0] <= arr[end][1]:
+            st += 1
+            cnt += 1
+        elif arr[st][0] > arr[end][1]:
+            cnt -= 1
+            end += 1
+        if cnt >= n-1:
             return True
     return False
 

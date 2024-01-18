@@ -4,7 +4,7 @@ arr = []
 for _ in range(n):
     arr.append(list(map(int, input().strip().split(" "))))
 
-    
+arr.sort()
 def check():
     cnt = 0
     st, end= 0, 0

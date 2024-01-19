@@ -1,6 +1,6 @@
 n = int(input())
 
-pigeons = [[] for _ in range(n+1)]
+pigeons = [[] for _ in range(11)]
 
 for _ in range(n):
     idx, d = map(int, input().strip().split(" "))

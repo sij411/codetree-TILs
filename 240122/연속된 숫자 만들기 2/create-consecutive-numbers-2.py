@@ -6,9 +6,9 @@ all_seq = False
 def check_seq(a, b, c):
     if (a + 1) == b and (b + 1) == c:
         all_seq = True
-    
-    
-check_seq(a, b, c)
+    return all_seq
+
+all_seq = check_seq(a, b, c)
 
 
 if all_seq:

@@ -10,9 +10,9 @@ def check_seq(a, b, c):
     
 check_seq(a, b, c)
 
-cnt = 0
+
 if all_seq:
-    print(cnt)
+    cnt = 0
 else:
     if (b - a) == 2 or (c - b) == 2:
         cnt = 1

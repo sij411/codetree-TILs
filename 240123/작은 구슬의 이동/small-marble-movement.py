@@ -19,6 +19,7 @@ mapper = {
     'R': 3
 }
 
+
 cur_dir = mapper[cur_dir]
 
 def in_range(x, y):

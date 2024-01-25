@@ -1,44 +1,36 @@
+# 변수 선언 및 입력
 n = int(input())
+numbers = [
+    int(input())
+    for _ in range(n)
+]
+end_of_array = n
 
-arr = [int(input()) for _ in range(n)]
 
-will_delete = []
+# 입력 배열에서 지우고자 하는 부분 수열을 삭제합니다.
+def cut_array(start_idx, end_idx):
+    global end_of_array, numbers
+    
+    temp_arr = []
+    
+    # 구간 외의 부분만 temp 배열에 순서대로 저장합니다.
+    for i in range(end_of_array):
+        if i < start_idx or i > end_idx:
+            temp_arr.append(numbers[i])
+
+    # temp 배열을 다시 numbers 배열로 옮겨줍니다.
+    end_of_array = len(temp_arr)
+    for i in range(end_of_array):    
+        numbers[i] = temp_arr[i]
+
+
+# 두 번에 걸쳐 지우는 과정을 반복합니다.
 for _ in range(2):
-    will_delete.append(tuple(map(int, input().split(" "))))
+    s, e = tuple(map(int, input().split()))
+    # [s, e] 구간을 삭제합니다.
+    cut_array(s - 1, e - 1)
 
-# delete
-
-def make_blank(arr, st, end):
-    for i in range(st, end+1):
-        arr[i] = 0
-    return arr
-
-
-# 좀 오래 걸려서 시간 단축하는 방법으로 좀 줄여보면 좋겠음. 
-def gravity(arr):
-    end_of_arr = len(arr)
-    temp = [] # end of array
-
-    for i in range(end_of_arr):
-        if arr[i] != 0:
-            temp.append(arr[i])
-
-    return temp
-
-
-
-
-# output 
-# 남은 블록 개수 len(arr)
-# 그 숫자들 arr 
-
-for elem in will_delete:
-    arr = make_blank(arr, elem[0]-1, elem[1]-1)
-    arr = gravity(arr)
-
-cnt = len(arr)
-
-print(cnt)
-
-for i in range(len(arr)):
-    print(arr[i])
+# 출력:
+print(end_of_array)
+for i in range(end_of_array):
+    print(numbers[i])

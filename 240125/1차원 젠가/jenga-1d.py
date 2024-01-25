@@ -26,7 +26,7 @@ def gravity(arr):
     for i in range(end_of_temp_arr):
         _arr[i] = temp[i]
     
-    return _arr
+    return _arr[:end_of_temp_arr+1]
 
 
 

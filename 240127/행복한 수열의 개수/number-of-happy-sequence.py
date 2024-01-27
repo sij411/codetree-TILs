@@ -7,8 +7,8 @@ grid = [list(map(int, input().strip().split(" "))) for _ in range(n)]
 hp = 0
 for i in range(n):
     max_cnt_col = 0
-    cnt = 1
-    for j in range(1, n):
+    cnt = 0
+    for j in range(n):
         if grid[i][j] == grid[i][j-1]:
             cnt += 1
         else:
@@ -22,8 +22,8 @@ for i in range(n):
 
 for i in range(n):
     max_cnt_row = 0
-    cnt = 1
-    for j in range(1, n):
+    cnt = 0
+    for j in range(n):
         if grid[j][i] == grid[j-1][i]:
             cnt += 1
         else:

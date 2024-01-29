@@ -23,7 +23,7 @@ def in_range(x, y):
 # get next pos
 def get_next_pos(cur_x, cur_y):
 
-    max_num = grid[cur_x][cur_y]
+    max_num = 0
     max_pos = (cur_x, cur_y)
 
     for dx, dy in zip(dxs, dys):
@@ -67,7 +67,7 @@ def remove_collision():
 def simulate():
     move_all()
     remove_collision()
-   # print(count)
+
 
 for _ in range(t):
     simulate()

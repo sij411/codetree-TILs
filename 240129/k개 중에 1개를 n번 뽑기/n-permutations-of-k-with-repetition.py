@@ -10,11 +10,11 @@ def print_pair(arr):
 
 def choose(curr_count):
     global cnt
-    if curr_count == k:
+    if curr_count == n:
         cnt += 1
         print_pair(arr)
         return 
-    for i in range(n):
+    for i in range(k):
         arr.append(i + 1)
         choose(curr_count + 1)
         arr.pop()

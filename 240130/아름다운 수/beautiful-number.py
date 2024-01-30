@@ -1,0 +1,43 @@
+# 변수 선언 및 입력
+n = int(input())
+ans = 0
+seq = list()
+
+def is_beautiful():
+    # 연달아 같은 숫자가 나오는 시작 위치를 잡습니다.
+    i = 0
+    while i < n:
+
+        # 만약 연속하여 해당 숫자만큼 나올 수 없다면
+        # 아름다운 수가 아닙니다.
+        # 현재 위치에서 현재 숫자만큼 더한 위치가 리스트의 길이를 넘어선다면, 
+        # 해당 숫자만큼의 연속적인 숫자를 가질 수 없으므로 False를 반환합니다.
+        if i + seq[i] - 1 >= n:
+            return False
+        # 연속하여 해당 숫자만큼 같은 숫자가 있는지 확인합니다. 
+        # 하나라도 다른 숫자가 있다면
+        # 아름다운 수가 아닙니다. 
+        
+        for j in range(i, i + seq[i]):
+            if seq[j] != seq[i]:
+                return False
+        i += seq[i] # idx adjusting
+
+    return True
+
+def count_beautiful_seq(cnt):
+    global ans
+
+    if cnt == n :
+        if is_beautiful():
+            ans += 1
+        return
+    
+    for i in range(1, 5):
+        seq.append(i)
+        count_beautiful_seq(cnt + 1)
+        seq.pop()
+
+
+count_beautiful_seq(0)
+print(ans)

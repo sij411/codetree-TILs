@@ -2,7 +2,7 @@
 n = int(input())
 
 # 예외를 깔끔하게 처리하기 위해 0번 인덱스에 0을 넣어줍니다.
-a = [0] + list(map(int, input().split(' ')))
+a = [0] + list(map(int, input().strip().split(' ')))
 
 # dp[i] : 마지막으로 고른 원소의 위치가 i인
 # 부분 수열 중 최장 부분 수열의 길이

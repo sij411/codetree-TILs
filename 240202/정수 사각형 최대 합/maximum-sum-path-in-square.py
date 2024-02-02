@@ -15,15 +15,17 @@ DP = [
 ]
 
 # 디피 테이블 초기화
+
 def initialize():
-    for j in range(n):
-        DP[0][j] = grid[0][j]
+    DP[0][0] = grid[0][0]
+    for j in range(1, n):
+        DP[0][j] = DP[0][j-1] + grid[0][j]
 
     for i in range(1, n):
     # 첫 번째 열에 대한 초깃값
         DP[i][0] = DP[i - 1][0] + grid[i][0]
 
-        DP[i][i] = DP[i - 1][i - 1] + grid[i][i]
+
 
 
 initialize()

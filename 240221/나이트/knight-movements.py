@@ -37,4 +37,7 @@ dist[r1-1][c1-1] = 0
 q.append((r1-1, c1-1))
 bfs()
 
-print(dist[r2-1][c2-1])
+if dist[r2-1][c2-1] > 0:
+    print(dist[r2-1][c2-1])
+else:
+    print(-1)

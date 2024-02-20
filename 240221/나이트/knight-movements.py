@@ -6,7 +6,7 @@ n = int(input())
 r1, c1, r2, c2 = map(int, input().strip().split(" "))
 # grid -> visited only
 visited = [[0] * n for _ in range(n)]
-dist = [[0] * n for _ in range(n)]
+dist = [[-1] * n for _ in range(n)]
 
 drs = [-1, -2, -2, -1, 1, 2, 2, 1]
 dcs = [-2, -1, 1, 2, 2, 1, -1, -2]
@@ -37,7 +37,4 @@ dist[r1-1][c1-1] = 0
 q.append((r1-1, c1-1))
 bfs()
 
-if dist[r2-1][c2-1] > 0:
-    print(dist[r2-1][c2-1])
-else:
-    print(-1)
+print(dist[r2-1][c2-1])

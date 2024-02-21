@@ -1,25 +1,22 @@
-n, m = map(int, input().split(" "))
+def dfs(graph, start, visited):
+    visited.add(start)
+    for neighbor in graph[start]:
+        if neighbor not in visited:
+            dfs(graph, neighbor, visited)
 
-graph = [[] for _ in range(n+1)]
-visited = [False for _ in range(n + 1)]
+# 입력 받기
+n, m = map(int, input().split())
+graph = {i: set() for i in range(1, n+1)}
 
-# init
+# 그래프 구성
 for _ in range(m):
-    x, y = map(int, input().split(" "))
-    # 양방향 그래프이기 때문에 각 정점에 대한 간선을 각각 저장해줍니다.
-    graph[x].append(y)
-    graph[y].append(x)
+    a, b = map(int, input().split())
+    graph[a].add(b)
+    graph[b].add(a)  # 무방향 그래프이므로 양쪽에 추가
 
-def dfs(v):
-    global cnt
-    for curr_v in graph[v]:
-        if not visited[curr_v]:
-            cnt += 1
-            visited[curr_v] = True
-            dfs(curr_v)
+# DFS 실행
+visited = set()
+dfs(graph, 1, visited)
 
-cnt = 0
-visited[1] = True
-dfs(1)
-
-print(cnt)
+# 출력: 1번 노드를 제외한 연결된 노드의 개수
+print(len(visited) - 1)

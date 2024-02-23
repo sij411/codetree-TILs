@@ -1,7 +1,7 @@
 # 입력 : 행렬 크기, 행렬
 n = int(input())
 grid = [list(map(int, input().strip().split(" "))) for _ in range(n)]
-dp = [[-1] * n for _ in range(n)]
+dp = [[0] * n for _ in range(n)]
 # 이동 : 오른쪽, 밑 (0, -1) (1, 0)
 
 # 매번 이동 시 검사하는 것 : 이동했을 때 거쳐간 위치에 적혀있는 숫자들 중 최댓값 찾기 (경로별 )
@@ -33,10 +33,11 @@ for i in range(n):
     if i == 0:
         dp[0][0] = grid[0][0]
     else:
-        dp[i][0] = max(dp[i-1][0], grid[0][j])
+        dp[i][0] = max(dp[i-1][0], grid[i][0])
 
 for i in range(1, n):
     for j in range(1, n):
         dp[i][j] = max(min(dp[i][j-1], dp[i-1][j]), grid[i][j])
+
 
 print(dp[n-1][n-1])

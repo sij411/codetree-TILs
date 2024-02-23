@@ -1,7 +1,7 @@
 # 입력 : 행렬 크기, 행렬
 n = int(input())
 grid = [list(map(int, input().strip().split(" "))) for _ in range(n)]
-dp = [[0] * n for _ in range(n)]
+dp = [[-1] * n for _ in range(n)]
 # 이동 : 오른쪽, 밑 (0, -1) (1, 0)
 
 # 매번 이동 시 검사하는 것 : 이동했을 때 거쳐간 위치에 적혀있는 숫자들 중 최댓값 찾기 (경로별 )
